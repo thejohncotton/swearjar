@@ -13,42 +13,35 @@ import Spokestack
 class ViewController: UIViewController, SpeechEventListener, PipelineDelegate, TextToSpeechDelegate {
     var config:SpeechConfiguration? = nil
     var tts:TextToSpeech? = nil
+    var moneyInSwearJar:Int = 0
     
     func success(result: TextToSpeechResult) {
-    
     }
     
     func failure(error: Error) {
-        
     }
     
     func didBeginSpeaking() {
-    
     }
     
     func didFinishSpeaking() {
-    
     }
     
     func didInit() {
-        
     }
     
     func didStart() {
-        
     }
     
     func didStop() {
-        
     }
     
     func setupFailed(_ error: String) {
-        
     }
     
 
     lazy private var pipeline: SpeechPipeline = {
-        config?.wakewords = "bitch,shirt,farts,fart,biff,spaghettios,fork,fuck,damn"
+        config?.wakewords = "bitch,shirt,farts,fart,biff,spaghettios,fork,fuck,damn,crap,poop,mother forker,bull shirt,shirt balls,bench,ash,ass,cock,cork,deck,dick"
         return SpeechPipeline(SpeechProcessors.appleSpeech.processor,
                               speechConfiguration: config!,
         speechDelegate: self,
@@ -69,6 +62,8 @@ class ViewController: UIViewController, SpeechEventListener, PipelineDelegate, T
    
    func didRecognize(_ result: SpeechContext) {
        let userText = result.transcript
+       print("USER TEXT<><><><><><")
+       tts?.speak(TextToSpeechInput("You hit did recognize"))
        print(userText)
 
        if userText.range(of: "(?i)start",
@@ -113,17 +108,18 @@ class ViewController: UIViewController, SpeechEventListener, PipelineDelegate, T
        self.pipeline.deactivate()
    }
 
+   let repremands = ["You said a bad word. Put a dollar in the swear jar.", "Oh no you didn't! Put a dollar in the swear jar for your terrible language.", "Do you kiss your mother with that mouth? Put a dollar in the swear jar."]
     
     func activate() {
         print("SPEECH ACTIVATED<><><><><<>")
-        tts?.speak(TextToSpeechInput("Yo mama"))
+        moneyInSwearJar = moneyInSwearJar + 1
+        let dollar = moneyInSwearJar == 1 ? "dollar" : "dollars"
+        let repremand = repremands.randomElement()! + "There is now \(moneyInSwearJar) \(dollar) in the swear jar."
+        print(repremand)
+        tts?.speak(TextToSpeechInput(repremand))
         pipeline.stop()
         pipeline.start()
     }
-
-    
-    
-    
 
 }
 
