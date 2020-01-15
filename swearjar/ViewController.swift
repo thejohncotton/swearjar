@@ -15,6 +15,8 @@ class ViewController: UIViewController, SpeechEventListener, PipelineDelegate, T
     var tts:TextToSpeech? = nil
     var moneyInSwearJar:Int = 0
     
+    @IBOutlet weak var swearJarCountDisplay: UILabel!
+    
     func success(result: TextToSpeechResult) {
     }
     
@@ -117,6 +119,7 @@ class ViewController: UIViewController, SpeechEventListener, PipelineDelegate, T
         let repremand = repremands.randomElement()! + "There is now \(moneyInSwearJar) \(dollar) in the swear jar."
         print(repremand)
         tts?.speak(TextToSpeechInput(repremand))
+        swearJarCountDisplay.text = "$\(moneyInSwearJar).00"
         pipeline.stop()
         pipeline.start()
     }
