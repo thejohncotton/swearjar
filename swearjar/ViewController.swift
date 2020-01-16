@@ -15,12 +15,12 @@ class ViewController: UIViewController, SpeechEventListener, PipelineDelegate, T
     var speechConfig: SpeechConfiguration? = nil
     var tts: TextToSpeech? = nil
     var moneyInSwearJar: Int = 0
-    var repremandIndex: Int = 0
+    var reprimandIndex: Int = 0
     var bombSoundEffect: AVAudioPlayer?
-    let repremands = ["You said a bad word. Put a dollar in the swear jar.", "Oh no you didn't!", "Do you kiss your mother with that mouth?"]
+    let reprimands = ["You said a bad word. Put a dollar in the swear jar.", "Oh no you didn't!", "Do you kiss your mother with that mouth?"]
     
     lazy private var pipeline: SpeechPipeline = {
-        speechConfig?.wakewords = "bitch,shirt,farts,fart,biff,spaghettios,fork,fuck,damn,crap,poop,mother forker,bull shirt,shirt balls,bench,ash,ass,cock,cork,deck,dick,gosh,crud,turd,shit, java script"
+        speechConfig?.wakewords = "bitch,shirt,farts,fart,biff,spaghettios,fork,fuck,damn,crap,poop,mother forker,bull shirt,shirt balls,bench,ash,ass,cock,cork,deck,dick,gosh,crud,turd,shit, java script,dang,dear"
         return SpeechPipeline(SpeechProcessors.appleSpeech.processor,
                               speechConfiguration: speechConfig!,
         speechDelegate: self,
@@ -65,13 +65,13 @@ class ViewController: UIViewController, SpeechEventListener, PipelineDelegate, T
         moneyInSwearJar = moneyInSwearJar + 1
         
         let dollar = moneyInSwearJar == 1 ? "dollar" : "dollars"
-        let repremand = repremands[repremandIndex] + "There is now \(moneyInSwearJar) \(dollar) in the swear jar."
+        let reprimand = reprimands[reprimandIndex] + "There is now \(moneyInSwearJar) \(dollar) in the swear jar."
         
-        print(repremand)
+        print(reprimand)
         
-        repremandIndex = repremandIndex == repremands.count - 1 ? 0 : repremandIndex + 1
+        reprimandIndex = reprimandIndex == reprimands.count - 1 ? 0 : reprimandIndex + 1
         
-        tts?.speak(TextToSpeechInput(repremand))
+        tts?.speak(TextToSpeechInput(reprimand))
         
         swearJarCountDisplay.text = "$\(moneyInSwearJar).00"
         
