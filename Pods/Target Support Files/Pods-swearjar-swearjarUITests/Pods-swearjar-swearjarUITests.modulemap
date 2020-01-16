@@ -1,0 +1,6 @@
+framework module Pods_swearjar_swearjarUITests {
+  umbrella header "Pods-swearjar-swearjarUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
