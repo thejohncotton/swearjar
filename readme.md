@@ -1,12 +1,16 @@
 # Swear Jar
 ![smiley](swearing.png)
-### An iOS Voice App built with [Spokestack]()
+### An iOS Voice App built with [Spokestack](https://spokestack.io/)
 
 
 
 
 ## About
 This is a demo app that uses Spokestack's [cookbook](https://spokestack.io/docs/iOS/cookbook) to create a simplistic digital swear jar using wakewords.
+
+## Contributors
+[Anna Sherman](https://github.com/cavewoman)
+[John Cotton](https://github.com/thejohncotton)
 
 
 ## Install/Preview:
