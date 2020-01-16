@@ -15,13 +15,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="swearjar1" translatesAutoresizingMaskIntoConstraints="NO" id="PfA-2A-i2l">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swearjar1" translatesAutoresizingMaskIntoConstraints="NO" id="PfA-2A-i2l">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.94508653880000004" green="0.94509214159999999" blue="0.94510656599999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PfA-2A-i2l" secondAttribute="height" multiplier="207:448" id="cr6-94-7Sn"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="PfA-2A-i2l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="07P-Fb-9ci"/>
+                            <constraint firstItem="PfA-2A-i2l" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="OZp-mq-f05"/>
+                            <constraint firstItem="PfA-2A-i2l" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bkf-M7-oOv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
