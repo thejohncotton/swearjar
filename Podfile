@@ -6,6 +6,7 @@ target 'swearjar' do
   use_frameworks!
 
   # Pods for swearjar
+  pod 'SAConfettiView', :git => 'https://github.com/sudeepag/SAConfettiView'
   pod 'Spokestack-iOS'
 
   target 'swearjarTests' do

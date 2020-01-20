@@ -43,6 +43,7 @@
                     </view>
                     <connections>
                         <outlet property="swearJarCountDisplay" destination="5On-a2-Yhk" id="o3a-ub-t0a"/>
+                        <outlet property="view" destination="8bC-Xf-vdC" id="kGe-i8-qce"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
